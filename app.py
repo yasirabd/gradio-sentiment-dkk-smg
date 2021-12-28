@@ -83,9 +83,29 @@ def predict_sentiment(text):
     return {'Neutral': pred[0], 'Positive': pred[1], 'Negative': pred[2]}
 
 # sample_text1 = "Ayooo.. Tetep ProKes ketat..!!! Janhan lengah..!!! Semangat...!!!"
+description = "Isikan kolom text dengan komentar, kemudian biarkan model machine learning memprediksikan hasil sentimen untukmu!"
+article = """
+Kamu bisa menggunakan *input text* dari beberapa contoh berikut:
+
+- Komentar netral: `Klo yg sudah pernah positip apa tetep divaksinasi, Min?`
+- Komentar positif: `Ayooo.. Tetep ProKes ketat..!!! Janhan lengah..!!! Semangat...!!!`
+- Komentar negatif: `Data nggak valid nih kayaknya, d perum Sy nambah 3 orang tp malah d data 0 kasus...`
+
+---
+
+Team Div. Research Data Science Indonesia Chapter Jawa Tengah:
+
+1. Alfi Fauzia Hanifah ([LinkedIn](https://www.linkedin.com/in/alfifauziahanifah/) / [IG](https://www.instagram.com/alfifao/))
+2. Annisa P A ([LinkedIn](https://www.linkedin.com/in/annisapa/) / [IG](https://www.instagram.com/annisapa__/))
+3. Javas Alfreda Belva ([LinkedIn](https://www.linkedin.com/in/javasalfredabyp/) / [IG](https://www.instagram.com/javasalfreda_byp/))
+4. Muhammad Aghassi ([LinkedIn](https://www.linkedin.com/in/maghassiz/) / [IG](https://www.instagram.com/maghassiz/))
+5. Yasir Abdur Rohman ([LinkedIn](https://www.linkedin.com/in/yasirabd/) / [IG](https://www.instagram.com/yasirabdr/))
+"""
+
 gr.Interface(
     fn=predict_sentiment,
     title="Analisis Sentimen Komentar Instagram 🤗",
-    description="Isikan kolom text dengan komentar, kemudian biarkan model machine learning memprediksikan hasil sentimen untukmu!",
+    description=description,
+    article=article,
     inputs=gr.inputs.Textbox(lines=7, label="Text"),
     outputs="label").launch()
